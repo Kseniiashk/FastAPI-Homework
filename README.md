@@ -1,5 +1,7 @@
 # FastAPI-Homework
 
+Команды:
+
 POST http://localhost:8000/register/ - Регистрация пользователя
 
 POST http://localhost:8000/token/ - Авторизация (получение токена)
