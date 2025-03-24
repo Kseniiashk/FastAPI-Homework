@@ -19,8 +19,6 @@ GET http://localhost:8000/tasks/?sort_by=priority&sort_order=desc&search=сро�
 
 GET http://localhost:8000/tasks/top/?limit=3 - Получение топ-N задач по приоритету
 
-GET http://localhost:8000/tasks/1 - Получение топ-N задач по приоритету
-
 GET http://localhost:8000/tasks/1 - Получение конкретной задачи
 
 PUT http://localhost:8000/tasks/1 - Обновление задачи
