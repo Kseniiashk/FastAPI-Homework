@@ -18,14 +18,9 @@ coverage run -m pytest tests/
 coverage html
 
 # Нагрузочное тестирование:
-locust -f tests/locustfile.py
-
-Отчет о покрытии: открыть htmlcov/index.html
-7. **Пример отчета coverage**:
-```html
-<!-- htmlcov/index.html -->
-<!-- Генерируется автоматически после выполнения coverage html -->
-```
+coverage run -m pytest tests/                           
+coverage report -m
+coverage html  # для генерации HTML отчета
 
 Команды:
 
