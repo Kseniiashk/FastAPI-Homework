@@ -2,6 +2,7 @@ import pytest
 from fastapi import HTTPException
 from jose import JWTError
 from app import auth
+from datetime import datetime, timedelta
 
 def test_verify_password_valid():
     hashed = auth.get_password_hash("password")

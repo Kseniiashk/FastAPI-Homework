@@ -8,6 +8,7 @@ from redis import asyncio as aioredis
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.database import Base
+from app.models import User, Task
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
 
@@ -34,3 +35,29 @@ def event_loop():
 @pytest.fixture
 def client():
     return TestClient(app)
+
+@pytest.fixture(scope="function")
+def test_user(db):
+    user = User(
+        username="testuser",
+        email="test@example.com",
+        hashed_password="fakehashedpass"
+    )
+    db.add(user)
+    db.commit()
+    db.refresh(user)  # Refresh to ensure ID is populated
+    return user
+
+@pytest.fixture(scope="function")
+def test_task(db, test_user):
+    task = Task(
+        title="Test Task",
+        description="Test Description",
+        status="в ожидании",
+        priority=3,
+        owner_id=test_user.id
+    )
+    db.add(task)
+    db.commit()
+    db.refresh(task)
+    return task
