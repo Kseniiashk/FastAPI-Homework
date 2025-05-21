@@ -4,8 +4,8 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
-import models, schemas
-from database import get_db
+from app import models, schemas
+from app.database import get_db
 
 SECRET_KEY = "ваш_секретный_ключ"
 ALGORITHM = "HS256"

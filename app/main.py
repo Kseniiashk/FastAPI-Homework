@@ -3,12 +3,12 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from datetime import timedelta
 from typing import List, Optional
-import models, schemas, crud, auth
-from database import SessionLocal, engine
+from app import models, schemas, crud, auth
+from app.database import SessionLocal, engine
 from fastapi import FastAPI, Depends
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
-from redis import asyncio as aioredis
+from redis.asyncio import Redis
 from fastapi_cache.decorator import cache
 
 models.Base.metadata.create_all(bind=engine)
@@ -17,7 +17,7 @@ app = FastAPI()
 
 @app.on_event("startup")
 async def startup():
-    redis = aioredis.from_url("redis://localhost:6379")
+    redis = Redis.from_url("redis://localhost:6379", decode_responses=True)
     FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
 
 def get_db():

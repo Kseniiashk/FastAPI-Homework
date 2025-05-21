@@ -1,5 +1,32 @@
 # FastAPI-Homework
 
+## Тестирование
+
+### Установка зависимостей:
+```bash
+pip install -r tests/requirements-test.txt
+```
+
+# Юнит-тесты
+pytest tests/test_unit.py
+
+# Функциональные тесты
+pytest tests/test_functional.py
+
+# Проверка покрытия
+coverage run -m pytest tests/
+coverage html
+
+# Нагрузочное тестирование:
+locust -f tests/locustfile.py
+
+Отчет о покрытии: открыть htmlcov/index.html
+7. **Пример отчета coverage**:
+```html
+<!-- htmlcov/index.html -->
+<!-- Генерируется автоматически после выполнения coverage html -->
+```
+
 Команды:
 
 POST http://localhost:8000/register/ - Регистрация пользователя

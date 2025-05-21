@@ -2,6 +2,7 @@ from pydantic import BaseModel, EmailStr
 from datetime import datetime
 from enum import Enum
 from typing import Optional
+from pydantic import BaseModel, ConfigDict
 
 class TaskStatus(str, Enum):
     pending = "в ожидании"
@@ -17,13 +18,13 @@ class TaskBase(BaseModel):
 class TaskCreate(TaskBase):
     pass
 
-class Task(TaskBase):
+class Task(BaseModel):
     id: int
-    created_at: datetime
-    owner_id: int
-
-    class Config:
-        from_attributes = True
+    title: str
+    description: str | None = None
+    status: str
+    priority: int
+    model_config = ConfigDict(from_attributes=True)
 
 class Token(BaseModel):
     access_token: str

@@ -1,8 +1,9 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import asc, desc, or_
-import models, schemas
+from app import models, schemas
 from datetime import datetime
-import auth
+from app import auth
+
 
 def get_user_task(db: Session, task_id: int, user_id: int):
     return db.query(models.Task).filter(
@@ -39,7 +40,7 @@ def get_top_priority_tasks(db: Session, user_id: int, limit: int = 5):
     ).order_by(desc(models.Task.priority)).limit(limit).all()
 
 def create_user_task(db: Session, task: schemas.TaskCreate, user_id: int):
-    db_task = models.Task(**task.dict(), owner_id=user_id)
+    db_task = models.Task(**task.model_dump(), owner_id=user_id)
     db.add(db_task)
     db.commit()
     db.refresh(db_task)
@@ -50,7 +51,7 @@ def update_user_task(db: Session, task_id: int, task: schemas.TaskCreate, user_i
     if not db_task:
         return None
 
-    for key, value in task.dict().items():
+    for key, value in task.model_dump().items():
         setattr(db_task, key, value)
     db.commit()
     db.refresh(db_task)
