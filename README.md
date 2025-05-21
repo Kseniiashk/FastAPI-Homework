@@ -1,6 +1,7 @@
 # FastAPI-Homework
 
 ## Тестирование
+<img width="798" alt="Снимок экрана 2025-05-22 в 01 57 24" src="https://github.com/user-attachments/assets/3568bd6a-ec6c-4459-9645-4c7b018ee963" />
 
 ### Установка зависимостей:
 ```bash
