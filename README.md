@@ -4,8 +4,11 @@
 <img width="775" alt="Снимок экрана 2025-05-22 в 02 31 01" src="https://github.com/user-attachments/assets/dfdca129-d1a5-4ce2-bd0b-c77dcb047584" />
 
 (fastapi-env) kseniashk@MBP-Ksenia FastAPI-Homework % python -m pytest tests/test_unit.py
+
 2 passed, 4 warnings in 0.01s
+
 (fastapi-env) kseniashk@MBP-Ksenia FastAPI-Homework % python -m pytest tests/test_functional.py
+
 1 passed, 5 warnings in 0.27s 
 
 ### Установка зависимостей:
