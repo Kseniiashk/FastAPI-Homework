@@ -1,4 +1,4 @@
-<img width="777" alt="Снимок экрана 2025-05-22 в 02 30 45" src="https://github.com/user-attachments/assets/40d3faf0-9b0b-44f8-86ac-e7e55489bc7d" /># FastAPI-Homework
+# FastAPI-Homework
 
 ## Тестирование
 <img width="775" alt="Снимок экрана 2025-05-22 в 02 31 01" src="https://github.com/user-attachments/assets/dfdca129-d1a5-4ce2-bd0b-c77dcb047584" />
