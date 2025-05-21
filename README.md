@@ -11,6 +11,9 @@
 
 1 passed, 5 warnings in 0.27s 
 
+(fastapi-env) kseniashk@MBP-Ksenia FastAPI-Homework % locust -f tests/locustfile.py
+
+
 ### Установка зависимостей:
 ```bash
 pip install -r tests/requirements-test.txt
