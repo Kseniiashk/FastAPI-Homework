@@ -21,8 +21,11 @@ pip install -r tests/requirements-test.txt
 
 # Юнит-тесты
 pytest tests/test_unit.py
+
 pytest tests/test_crud.py
+
 pytest tests/test_main.py
+
 pytest tests/test_auth.py
 
 # Функциональные тесты
