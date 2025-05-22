@@ -13,6 +13,8 @@ class QuickstartUser(HttpUser):
             "priority": 1
         }, headers={"Authorization": "Bearer testtoken"})
 
-    @task(3)
+    @task
     def get_tasks(self):
-        self.client.get("/tasks/", headers={"Authorization": "Bearer testtoken"})
+        with self.client.get("/tasks/", catch_response=True) as response:
+            if response.status_code != 200:
+                response.failure(f"Wrong status code: {response.status_code}")
