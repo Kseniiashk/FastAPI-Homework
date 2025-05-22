@@ -145,3 +145,7 @@ def test_update_task_with_invalid_owner(db: Session, test_task):
 def test_delete_task_not_owner(db, test_task):
     result = crud.delete_user_task(db, test_task.id, user_id=999)
     assert result is None
+
+def test_get_task_with_wrong_user_id(db: Session, test_task):
+    task = crud.get_user_task(db, test_task.id, user_id=999)
+    assert task is None
