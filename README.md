@@ -29,12 +29,11 @@ pytest tests/test_functional.py
 coverage run -m pytest tests/
 coverage html
 
-# Нагрузочное тестирование:
 coverage run -m pytest tests/                           
 coverage report -m
 coverage html  # для генерации HTML отчета
 
-Команды:
+# Команды:
 
 POST http://localhost:8000/register/ - Регистрация пользователя
 
