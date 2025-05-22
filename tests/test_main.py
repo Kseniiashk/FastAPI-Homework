@@ -1,9 +1,12 @@
-import pytest
 from fastapi.testclient import TestClient
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.inmemory import InMemoryBackend  # Используем in-memory кэш
 from app.main import app
 from app.schemas import TaskCreate, UserCreate
 from app.database import Base, engine
 from sqlalchemy.orm import Session
+
+FastAPICache.init(InMemoryBackend(), prefix="test-cache")
 
 client = TestClient(app)
 
@@ -13,6 +16,9 @@ def setup_db():
     yield
     Base.metadata.drop_all(bind=engine)
 
+@pytest.fixture(autouse=True)
+def clear_cache():
+    FastAPICache.get_backend().clear()
 
 @pytest.fixture
 def test_user(db: Session):
@@ -188,3 +194,33 @@ def test_update_task_invalid_status(auth_header, test_task):
         "priority": 1
     }, headers=auth_header)
     assert response.status_code == 422
+
+
+def test_cache_invalidation(client, auth_header):
+    response = client.post(
+        "/tasks/",
+        json={
+            "title": "Test Task",
+            "status": "в ожидании",
+            "priority": 1
+        },
+        headers=auth_header
+    )
+    assert response.status_code == 200
+    assert "id" in response.json()
+    task_id = response.json()["id"]
+    response1 = client.get("/tasks/", headers=auth_header)
+    assert response1.status_code == 200
+    update_response = client.put(
+        f"/tasks/{task_id}",
+        json={
+            "title": "Updated Task",
+            "status": "в ожидании",
+            "priority": 1
+        },
+        headers=auth_header
+    )
+    assert update_response.status_code == 200
+    response2 = client.get("/tasks/", headers=auth_header)
+    assert response2.status_code == 200
+    assert response1.json() != response2.json()
