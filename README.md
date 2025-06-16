@@ -1,22 +1,28 @@
 # FastAPI-Homework
 
 ## Тестирование
-<img width="775" alt="Снимок экрана 2025-05-22 в 02 31 01" src="https://github.com/user-attachments/assets/dfdca129-d1a5-4ce2-bd0b-c77dcb047584" />
+---------- coverage: platform darwin, python 3.11.8-final-0 ----------
+Name              Stmts   Miss  Cover   Missing
+-----------------------------------------------
+app/__init__.py       0      0   100%
+app/auth.py          39      2    95%   45, 52
+app/crud.py          58      3    95%   25, 31, 92
+app/database.py      12      0   100%
+app/main.py          68      5    93%   20-21, 38, 121, 132
+app/models.py        23      0   100%
+app/schemas.py       39      0   100%
+-----------------------------------------------
+TOTAL               239     10    96%
+
 
 (fastapi-env) kseniashk@MBP-Ksenia FastAPI-Homework % python -m pytest tests/test_unit.py
 
-2 passed, 4 warnings in 0.01s
-
-(fastapi-env) kseniashk@MBP-Ksenia FastAPI-Homework % python -m pytest tests/test_functional.py
-
-1 passed, 5 warnings in 0.27s 
-
-(fastapi-env) kseniashk@MBP-Ksenia FastAPI-Homework % locust -f tests/locustfile.py
+ 3 failed, 33 passed, 21 warnings in 7.31s
 
 
 ### Установка зависимостей:
 ```bash
-pip install -r tests/requirements-test.txt
+pip install -r requirements-test.txt
 ```
 
 # Тесты
@@ -36,7 +42,7 @@ coverage html
 
 coverage run -m pytest tests/                           
 coverage report -m
-coverage html  # для генерации HTML отчета
+coverage html
 
 # Команды:
 
