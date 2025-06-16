@@ -1,18 +1,10 @@
 # FastAPI-Homework
 
 ## Тестирование
----------- coverage: platform darwin, python 3.11.8-final-0 ----------
-Name              Stmts   Miss  Cover   Missing
------------------------------------------------
-app/__init__.py       0      0   100%
-app/auth.py          39      2    95%   45, 52
-app/crud.py          58      3    95%   25, 31, 92
-app/database.py      12      0   100%
-app/main.py          68      5    93%   20-21, 38, 121, 132
-app/models.py        23      0   100%
-app/schemas.py       39      0   100%
------------------------------------------------
-TOTAL               239     10    96%
+![Uploading Снимок экрана 2025-06-17 в 01.19.06.png…]()
+![Uploading Снимок экрана 2025-06-17 в 01.19.06.png…]()
+![Uploading Снимок экрана 2025-06-17 в 01.19.06.png…]()
+![Uploading Снимок экрана 2025-06-17 в 01.19.06.png…]()
 
 
 (fastapi-env) kseniashk@MBP-Ksenia FastAPI-Homework % python -m pytest tests/test_unit.py
