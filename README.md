@@ -1,10 +1,11 @@
 # FastAPI-Homework
 
 ## Тестирование
-![Uploading Снимок экрана 2025-06-17 в 01.19.06.png…]()
-![Uploading Снимок экрана 2025-06-17 в 01.19.06.png…]()
-![Uploading Снимок экрана 2025-06-17 в 01.19.06.png…]()
-![Uploading Снимок экрана 2025-06-17 в 01.19.06.png…]()
+![Uploading Снимок экрана 2025-06-17 в 01.19.41.png…]()
+![Uploading Снимок экрана 2025-06-17 в 01.19.41.png…]()
+![Uploading Снимок экрана 2025-06-17 в 01.19.41.png…]()
+![Uploading Снимок экрана 2025-06-17 в 01.19.41.png…]()
+
 
 
 (fastapi-env) kseniashk@MBP-Ksenia FastAPI-Homework % python -m pytest tests/test_unit.py
