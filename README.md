@@ -34,6 +34,18 @@ coverage run -m pytest tests/
 coverage report -m
 coverage html
 
+# Проверка нагрузки сервера 
+
+В одном окне терминала запустите: 
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+В другом окне:
+curl -X POST "http://localhost:8000/register/" \
+     -H "Content-Type: application/json" \
+     -d '{"username": "testuser", "email": "test@example.com", "password": "password"}'
+
+locust -f tests/locustfile.py 
+
 # Команды:
 
 POST http://localhost:8000/register/ - Регистрация пользователя
