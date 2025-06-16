@@ -1,10 +1,7 @@
 # FastAPI-Homework
 
 ## Тестирование
-![Uploading Снимок экрана 2025-06-17 в 01.19.41.png…]()
-![Uploading Снимок экрана 2025-06-17 в 01.19.41.png…]()
-![Uploading Снимок экрана 2025-06-17 в 01.19.41.png…]()
-![Uploading Снимок экрана 2025-06-17 в 01.19.41.png…]()
+<img width="555" alt="Снимок экрана 2025-06-17 в 01 19 41" src="https://github.com/user-attachments/assets/5484300e-77e7-4834-9160-fee97a263309" /><img width="555" alt="Снимок экрана 2025-06-17 в 01 19 41" src="https://github.com/user-attachments/assets/5484300e-77e7-4834-9160-fee97a263309" />#
 
 
 
