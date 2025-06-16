@@ -1,3 +1,4 @@
+import pytest
 from fastapi.testclient import TestClient
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.inmemory import InMemoryBackend  # Используем in-memory кэш
